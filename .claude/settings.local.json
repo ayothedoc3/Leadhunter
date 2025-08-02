@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:worker:*)",
+      "Bash(npm run build:*)",
+      "Bash(wrangler d1 create:*)",
+      "Bash(npx wrangler d1 create:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pkill:*)",
+      "Bash(npx wrangler auth:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(cp:*)",
+      "Bash(set CLOUDFLARE_API_TOKEN=)",
+      "Bash(npx vite:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

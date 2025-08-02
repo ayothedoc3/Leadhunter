@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.worker.tsbuildinfo",
+    "types": ["vite/client", "./worker-configuration.d.ts"],
+    "baseUrl": ".",
+    "outDir": "./dist/worker",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "module": "esnext",
+    "moduleResolution": "node"
+  },
+  "include": ["src/worker", "src/shared"]
+}

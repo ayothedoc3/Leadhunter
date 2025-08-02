@@ -1,0 +1,10 @@
+node_modules
+.git
+.env
+.env.local
+.env.example
+dist/worker-build
+*.log
+.DS_Store
+.vscode
+README.md
