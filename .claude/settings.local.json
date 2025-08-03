@@ -21,7 +21,11 @@
       "Bash(gh repo create:*)",
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(tsc:*)",
+      "Bash(vite build)",
+      "Bash(powershell:*)",
+      "Bash(gh run list:*)"
     ],
     "deny": []
   }
