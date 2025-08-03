@@ -42,6 +42,7 @@
   },
   "scripts": {
     "build": "npm run build:worker && tsc -b && vite build",
+    "build:frontend": "tsc -b && vite build",
     "build:worker": "webpack --config webpack.worker.js",
     "cf-typegen": "wrangler types",
     "check": "tsc && vite build && wrangler deploy --dry-run",

@@ -22,11 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Build frontend
-        run: npx tsc -b && npx vite build
+      - name: Build frontend only
+        run: npm run build:frontend
         
-      - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          wranglerVersion: '3.57.0'
+          accountId: a6230b6eb5a4359c1666aee68c5a5065
+          projectName: leadhunter
+          directory: dist/client
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
