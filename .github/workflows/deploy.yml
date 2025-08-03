@@ -26,10 +26,7 @@ jobs:
         run: npm run build:frontend
         
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: a6230b6eb5a4359c1666aee68c5a5065
-          projectName: leadhunter
-          directory: dist/client
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install -g wrangler
+          echo "${{ secrets.CLOUDFLARE_API_TOKEN }}" | wrangler auth login --api-token
+          wrangler pages deploy dist/client --project-name=leadhunter --compatibility-date=2024-06-17
