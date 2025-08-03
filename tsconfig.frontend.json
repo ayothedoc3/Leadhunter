@@ -1,11 +1,6 @@
 {
-  "extends": "./tsconfig.json",
-  "exclude": [
-    "src/worker/**/*",
-    "worker-configuration.d.ts",
-    "webpack.worker.js"
-  ],
-  "compilerOptions": {
-    "types": []
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" }
+  ]
 }
