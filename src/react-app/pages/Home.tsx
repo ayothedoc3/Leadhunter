@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Search, Database, Download, Play, AlertCircle, CheckCircle2, MessageSquare, Settings } from 'lucide-react';
+import { Search, Database, Download, Play, AlertCircle, CheckCircle2, MessageSquare, Settings, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router';
 import SearchForm from '@/react-app/components/SearchForm';
 import LeadsTable from '@/react-app/components/LeadsTable';
 import RunsHistoryPanel from '@/react-app/components/RunsHistoryPanel';
 import DMCampaignPanel from '@/react-app/components/DMCampaignPanel';
+import HelpPanel from '@/react-app/components/HelpPanel';
 import { Lead, ScrapingRun } from '@/shared/types';
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
   const [runs, setRuns] = useState<ScrapingRun[]>([]);
   const [selectedLeads, setSelectedLeads] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<'search' | 'leads' | 'campaigns' | 'history'>('search');
+  const [activeTab, setActiveTab] = useState<'search' | 'leads' | 'campaigns' | 'history' | 'help'>('search');
   const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   useEffect(() => {
@@ -197,7 +198,8 @@ export default function Home() {
             { id: 'search', label: 'Search', icon: Search },
             { id: 'leads', label: 'Leads', icon: Database },
             { id: 'campaigns', label: 'DM Campaigns', icon: MessageSquare },
-            { id: 'history', label: 'History', icon: Play }
+            { id: 'history', label: 'History', icon: Play },
+            { id: 'help', label: 'Help', icon: HelpCircle }
           ].map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -238,6 +240,10 @@ export default function Home() {
         
         {activeTab === 'history' && (
           <RunsHistoryPanel runs={runs} />
+        )}
+
+        {activeTab === 'help' && (
+          <HelpPanel />
         )}
       </div>
     </div>
